@@ -51,7 +51,7 @@ class ExpenseList extends Component {
       <div>
         <Form refreshList={this.refreshList} />
         <div className='row'>
-          <div className='col-6'>
+          <div className='col-9'>
             <table className="table table-bordered">
               <thead>
                 <tr className="table-primary">
@@ -77,7 +77,7 @@ class ExpenseList extends Component {
               </tbody>
             </table>
           </div>
-          <div className='col-6'>
+          <div className='col-3'>
             <Card title='Spent' amount={-spent} backgound='bg-danger' />
             <Card title='Gained' amount={gained} backgound='bg-success' />
             <Card title='Total' amount={total} backgound='bg-primary' />
