@@ -1,3 +1,11 @@
 Rails.application.routes.draw do
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+  get 'expenses/index'
+
+  root to: 'expenses#index'
+
+  namespace :api, constraints: { format: 'json' } do
+    namespace :v1 do
+      resources :expenses
+    end
+  end
 end

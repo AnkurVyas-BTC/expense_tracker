@@ -1,0 +1,1 @@
+json.extract! @expense, :id, :title, :price, :date, :created_at, :updated_at

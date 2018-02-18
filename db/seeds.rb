@@ -5,3 +5,13 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+10.times do |t|
+  random_price = (1..100).to_a.sample
+  price =  ( t.even? ? -1 : 1) * random_price
+  Expense.create(
+    title: "Expense #{t+1}",
+    price: price,
+    date: DateTime.now
+  )
+end
