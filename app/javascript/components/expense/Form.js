@@ -1,6 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
-import {} from 'jquery-ujs';
+import { } from 'jquery-ujs';
 
 class Form extends React.Component {
   constructor(props) {
@@ -15,16 +15,16 @@ class Form extends React.Component {
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
-  
+
   handleChange(event) {
-    this.setState({[event.target.id]: event.target.value});
+    this.setState({ [event.target.id]: event.target.value });
   }
 
   handleSubmit(event) {
     event.preventDefault();
     let thisObj = this;
-    $.post( '/api/v1/expenses', { expense: this.state }, function( data ) {
-      thisObj.setState({date: '', title: '', price: ''});
+    $.post('/api/v1/expenses', { expense: this.state }, function (data) {
+      thisObj.setState({ date: '', title: '', price: '' });
       thisObj.props.refreshList();
     }, "json");
   }
@@ -32,12 +32,11 @@ class Form extends React.Component {
   render() {
     return (
       <form style={FormStyle} action='api/v1/expense' method="POST" onSubmit={this.handleSubmit} className="form-inline">
-
         <div className="form-group">
           <input
             type="text"
             className="form-control"
-            id="date" 
+            id="date"
             value={this.state.date}
             onChange={this.handleChange}
             placeholder="Date"
@@ -53,17 +52,16 @@ class Form extends React.Component {
           <input
             type="number"
             className="form-control mx-sm-3"
-            id="price" 
+            id="price"
             value={this.state.price}
             onChange={this.handleChange}
             placeholder="Price"
           />
           <input
-          type="submit"
-          className="btn btn-success mx-sm-3"
-          value="Submit"
-        />
-
+            type="submit"
+            className="btn btn-success mx-sm-3"
+            value="Submit"
+          />
         </div>
       </form>
     );
